@@ -1,0 +1,296 @@
+/* Responsive styles for mobile */
+@media (max-width: 600px) {
+  .calculator-container {
+    padding: 0 4vw;
+  }
+  .calc-title {
+    font-size: 2rem;
+    margin-bottom: 6px;
+  }
+  .calculator {
+    width: 100%;
+    padding: 18px 4px 10px 4px;
+    min-width: unset;
+    box-sizing: border-box;
+  }
+  #display {
+    font-size: 1.2rem;
+    height: 44px;
+    padding: 7px;
+  }
+  .buttons {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+  }
+  .button {
+    height: 40px;
+    font-size: 1rem;
+    border-radius: 8px;
+    min-width: 0;
+    padding: 0;
+  }
+  .button.plus {
+    height: 85px;
+    font-size: 1.2rem;
+  }
+  .mode-toggle {
+    top: -48px;
+    right: 0;
+    gap: 8px;
+    transform: scale(0.8);
+  }
+  #toggle-mode, #history-btn, #more-btn {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 1.2rem;
+  }
+  .history-panel {
+    top: 60px;
+    right: 0;
+    width: 90vw;
+    max-width: 320px;
+    padding: 10px 6px 8px 6px;
+    font-size: 0.95rem;
+  }
+}
+.button.plus {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff;
+    box-shadow: 0 2px 8px #0002;
+    height: 135px;
+    grid-row: span 2;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at 50% 40%, #5a437a 0%, #2d223a 80%, #18101a 100%);
+    transition: background 0.5s;
+}
+.background {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    background: radial-gradient(ellipse at 50% 40%, #a18cd1aa 0%, transparent 80%),
+                linear-gradient(180deg, #2d223a 0%, #5a437a 100%);
+    box-shadow: 0 0 120px 40px #000a, 0 0 180px 80px #5a189a55, 0 0 220px 120px #43c6f555;
+    pointer-events: none;
+    transition: background 0.5s, box-shadow 0.5s;
+}
+.calculator-container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+.calc-title {
+    text-align: center;
+    font-size: 2.7rem;
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    letter-spacing: 2.5px;
+    text-shadow: 0 2px 8px #0005;
+}
+body.light-mode .calc-title {
+    color: #222;
+    text-shadow: 0 2px 8px #fff5;
+}
+.mode-toggle {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    z-index: 10;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+@media (max-width: 500px) {
+  .mode-toggle {
+    top: 5px;
+    right: 5px;
+    gap: 10px;
+  }
+}
+#toggle-mode, #history-btn, #more-btn {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+    min-height: 60px;
+    font-size: 2.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.3s, color 0.3s;
+    margin: 0;
+}
+body.light-mode #toggle-mode, body.light-mode #history-btn {
+    background: #fff;
+    color: #222;
+}
+.history-panel {
+    position: fixed;
+    top: 80px;
+    right: 32px;
+    width: 260px;
+    max-height: 400px;
+    background: rgba(255,255,255,0.97);
+    color: #222;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px #0003;
+    padding: 18px 18px 12px 18px;
+    z-index: 20;
+    overflow-y: auto;
+    transition: background 0.3s, color 0.3s;
+}
+body:not(.light-mode) .history-panel {
+    background: #23235b;
+    color: #fff;
+}
+.history-panel h2 {
+    margin: 0 0 14px 0;
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: 'Orbitron', 'Segoe UI', Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.history-panel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
+.history-panel ul li {
+    padding: 4px 0;
+    border-bottom: 1px solid #eee;
+    word-break: break-all;
+}
+body:not(.light-mode) .history-panel ul li {
+    border-bottom: 1px solid #444;
+}
+#toggle-mode {
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.3s, color 0.3s;
+}
+.calculator {
+    background: #2c2c2e;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px #0005;
+    padding: 30px 20px 20px 20px;
+    width: 340px;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.5s;
+}
+#display {
+    width: 100%;
+    height: 60px;
+    font-size: 2rem;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #fff;
+    color: #222;
+    text-align: right;
+    padding: 10px;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.5s, color 0.5s, border 0.5s;
+}
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 15px;
+}
+.button {
+    height: 60px;
+    font-size: 1.3rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #ffb347 0%, #ffcc33 100%);
+    color: #222;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #0002;
+    transition: background 0.3s, color 0.3s, transform 0.1s;
+}
+.button.operator {
+    background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+    color: #fff;
+}
+.button.equal {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: #222;
+}
+.button.clear {
+    background: linear-gradient(135deg, #ff5858 0%, #f09819 100%);
+    color: #fff;
+}
+.button.del {
+    background: linear-gradient(135deg, #8e54e9 0%, #4776e6 100%);
+    color: #fff;
+}
+.button:active {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 4px #fff7, 0 0 12px 4px #43c6f5cc, 0 0 24px 8px #a18cd1cc;
+    border: 2px solid #43c6f5;
+    z-index: 2;
+}
+.button.plus:active {
+    box-shadow: 0 0 0 4px #fff7, 0 0 12px 4px #43c6f5cc, 0 0 24px 8px #a18cd1cc !important;
+    border: none !important;
+    outline: none !important;
+    z-index: 2;
+}
+body.light-mode {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 50%, #a1c4fd 75%, #70e1f5 100%);
+}
+body.light-mode .background {
+    background: radial-gradient(circle at 20% 20%, #e0c3fc88 0%, transparent 70%),
+                radial-gradient(circle at 80% 80%, #70e1f588 0%, transparent 70%);
+}
+body.light-mode .calculator {
+    background: #fff;
+}
+body.light-mode #display {
+    background: #e0e0e0;
+    color: #222;
+    border: 2px solid #000;
+}
+
+body:not(.light-mode) #display {
+    background: #34363a;
+    color: #fff;
+    border: 2px solid #fff;
+}
+body.light-mode #toggle-mode {
+    background: #fff;
+    color: #222;
+}
